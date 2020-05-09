@@ -1,0 +1,32 @@
+﻿let mapleader=','
+
+"noremap <leader>c "*y<CR>
+"noremap <leader>v "*p<CR>
+
+
+""IDEA功能快捷键映射
+" <CR> 是回车的意思
+" IdeaVim 插件提供了两个特殊的命令
+" 1. actionlist {partten}: 展示IDEA Action的名字以及快捷键.
+" 2. action : 执行一个IDEA Action. 相当于执行IDEA的快捷键
+
+" 查找类的快捷键
+noremap <leader>n :action GotoClass<C-N><CR>
+" 生成通用方法的快捷键
+noremap <leader>g :action Generate<A-Ins><CR>
+" 创建或者查找对应 Test类的快捷键
+noremap <leader>t :action GotoTest<C-S-T><CR>
+" Refactor 窗口
+noremap <leader>r :action Refactorings.QuickListPopupAction<A-C-S-T><CR>
+" 最近文件
+noremap <leader>e :action RecentFiles<C-E><CR>
+" 方法参数信息
+noremap <leader>p :action ParameterInfo<C-P><CR>
+"
+noremap <leader>q :action QuickJavaDoc<C-Q><CR>
+"
+noremap <leader>R :action RunClass<C-S-F10><CR>
+
+
+" 可视模式
+vnoremap <leader>R :action $Copy<C-C><CR>

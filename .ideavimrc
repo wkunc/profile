@@ -1,8 +1,10 @@
-﻿let mapleader=','
+set keep-english-in-normal
 
+set ideajoin
+
+let mapleader=','
 "noremap <leader>c "*y<CR>
 "noremap <leader>v "*p<CR>
-
 
 ""IDEA功能快捷键映射
 " <CR> 是回车的意思
@@ -10,23 +12,47 @@
 " 1. actionlist {partten}: 展示IDEA Action的名字以及快捷键.
 " 2. action : 执行一个IDEA Action. 相当于执行IDEA的快捷键
 
+"" GoTo 系列
 " 查找类的快捷键
 noremap <leader>n :action GotoClass<C-N><CR>
-" 生成通用方法的快捷键
-noremap <leader>g :action Generate<A-Ins><CR>
+
 " 创建或者查找对应 Test类的快捷键
 noremap <leader>t :action GotoTest<C-S-T><CR>
+
+" 实现类， 实现方法跳转
+noremap <leader>b :action GotoImplementation<CR>
+
+"" 打开小窗口系列
+" 生成代码 窗口
+noremap <leader>g :action Generate<CR>
+
+" 当前目录创建文件 窗口
+noremap <leader>N :action NewElementSamePlace<CR>
+
 " Refactor 窗口
-noremap <leader>r :action Refactorings.QuickListPopupAction<A-C-S-T><CR>
-" 最近文件
+noremap <leader>R :action Refactorings.QuickListPopupAction<A-C-S-T><CR>
+
+" 最近文件 窗口
 noremap <leader>e :action RecentFiles<C-E><CR>
+
+
 " 方法参数信息
-noremap <leader>p :action ParameterInfo<C-P><CR>
-"
-noremap <leader>q :action QuickJavaDoc<C-Q><CR>
-"
-noremap <leader>R :action RunClass<C-S-F10><CR>
+noremap <leader>p :action ParameterInfo<CR>
+" IDEA typeInfo 功能
+noremap <leader>P :action ExpressionTypeInfo<CR>
+
+" 快速打开文档
+noremap <leader>q :action QuickJavaDoc<CR>
+
+" IDEA find 功能
+noremap <leader>f :action Find<CR>
+
+" IDEA Hierarchy Class 功能
+noremap <leader>h :action TypeHierarchy<CR>
 
 
-" 可视模式
-vnoremap <leader>R :action $Copy<C-C><CR>
+" 快速运行当前类
+noremap <leader>r :action RunClass<C-S-F10><CR>
+
+"" 行注释
+noremap <leader>cc :action CommentByLineComment<CR>

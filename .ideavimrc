@@ -1,10 +1,32 @@
 set keep-english-in-normal
-
 set ideajoin
 
-let mapleader=','
-"noremap <leader>c "*y<CR>
-"noremap <leader>v "*p<CR>
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'nerdtree'
+Plug 'argtextobj.vim'
+Plug 'vim-commentary'
+Plug 'vim-highlightedyank'
+
+set which-key
+" disable the timeout option
+set notimeout
+" set timeoutlen=5000
+
+
+" Setting
+set scrolloff=5
+set clipboard=ideaput,unnamedplus
+
+" Mapping
+"let mapleader=','
+let mapleader=' '
+
+nmap <TAB> gt
+nmap <S-TAB> gT
+
+nmap <C-n> :NERDTree<CR>
+"nmap <leader>e :NERDTreeFocus<CR>
 
 ""IDEA功能快捷键映射
 " <CR> 是回车的意思
@@ -14,45 +36,43 @@ let mapleader=','
 
 "" GoTo 系列
 " 查找类的快捷键
-noremap <leader>n :action GotoClass<C-N><CR>
+noremap <leader>n :action GotoClass<CR>
 
 " 创建或者查找对应 Test类的快捷键
-noremap <leader>t :action GotoTest<C-S-T><CR>
+nmap <leader>t <Action>(GotoTest)
 
 " 实现类， 实现方法跳转
-noremap <leader>b :action GotoImplementation<CR>
+nmap <leader>b <Action>(GotoImplementation)
 
 "" 打开小窗口系列
 " 生成代码 窗口
-noremap <leader>g :action Generate<CR>
-
+nmap <leader>g <Action>(Generate)
+" 找到当前文件
+nmap <leader>s <Action>(SelectIn)
 " 当前目录创建文件 窗口
-noremap <leader>N :action NewElementSamePlace<CR>
-
+nmap <leader>N <Action>(NewElementSamePlace)
 " Refactor 窗口
-noremap <leader>R :action Refactorings.QuickListPopupAction<A-C-S-T><CR>
-
+nmap <leader>R <Action>(Refactorings.QuickListPopupAction)
 " 最近文件 窗口
-noremap <leader>e :action RecentFiles<C-E><CR>
-
-
+nmap <leader>e <Action>(RecentFiles)
 " 方法参数信息
-noremap <leader>p :action ParameterInfo<CR>
+nmap <leader>p <Action>(ParameterInfo)
 " IDEA typeInfo 功能
-noremap <leader>P :action ExpressionTypeInfo<CR>
-
+nmap <leader>P <Action>(ExpressionTypeInfo)
+vmap <leader>P <Action>(ExpressionTypeInfo)
 " 快速打开文档
-noremap <leader>q :action QuickJavaDoc<CR>
-
+nmap <leader>k <Action>(QuickJavaDoc)
 " IDEA find 功能
 noremap <leader>f :action Find<CR>
-
 " IDEA Hierarchy Class 功能
-noremap <leader>h :action TypeHierarchy<CR>
-
-
+nmap <leader>h <Action>(TypeHierarchy)
 " 快速运行当前类
-noremap <leader>r :action RunClass<C-S-F10><CR>
+nmap <leader>r <Action>(RunClass)
+nmap <leader>d <Action>(DebugClass)
 
-"" 行注释
-noremap <leader>cc :action CommentByLineComment<CR>
+" 单行注释
+nmap <leader>/ <Action>(CommentByLineComment)
+vmap <leader>/ <Action>(CommentByLineComment)
+
+" 格式化
+nmap <leader>fm <Action>(ReformatCode)
